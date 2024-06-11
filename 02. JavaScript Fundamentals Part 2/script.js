@@ -149,4 +149,77 @@ const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 
 console.log(total);
 console.log(tips);
+
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Islam',
+    age: 2024 - 1993,
+    job: 'teacher',
+    friends: ['Shu','Nic','Peter']
+};
+
+
+const interestedIn = prompt('What do you want to know about jonas? Choose between firstName, lastName, age, job, and friends');
+console.log(jonas[interestedIn]);
+console.log(jonas.friends[2]);
+
+
+const jonas = {
+    firstName: "Jonas",
+    lastName: "Islam",
+    birthYear: 1993,
+    job: "teacher",
+    friends: ["Shu", "Nic", "Peter"],
+    hasDriverLicense: false,
+
+    // calcAge: function(birthYear){
+    //     return 2024-birthYear;
+    // }
+
+    // calcAge: function () {
+    //     // console.log(this);
+    //     return 2024 - this.birthYear;
+    // },
+
+    calcAge: function () {
+        this.age = 2024 - this.birthYear;
+        return this.age;
+    },
+    getSummary: function(){
+        return `${this.firstName} is a ${this.calcAge()}-year old ${jonas.job}, and has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`
+    }
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.getSummary());
 */
+
+// BMI = mass / height ** 2;
+
+const bmiMark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = (this.mass / this.height ** 2).toFixed(1);
+        return this.bmi;
+    }
+}
+
+const bmiJohn = {
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = (this.mass / this.height ** 2).toFixed(1);
+        return this.bmi;
+    },
+};
+
+const getSummary = function(){
+    return bmiMark.calcBMI() > bmiJohn.calcBMI() ? `Mark's BMI (${bmiMark.calcBMI()}) is higher than John's (${bmiJohn.calcBMI()})!!` : `John's BMI ${bmiJohn.calcBMI()} is higher than Mark's ${bmiMark.calcBMI()}!!`
+}
+
+console.log(getSummary());
